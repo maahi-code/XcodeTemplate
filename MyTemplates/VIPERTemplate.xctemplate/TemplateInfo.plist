@@ -4,16 +4,13 @@
 <dict>
     <key>Kind</key>
     <string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
-    <key>Description</key>
-    <string>A VIPER screen: View, Presenter, Interactor protocol and Router protocol, wired into an existing RIB.</string>
-    <key>Summary</key>
-    <string>View, Presenter, Interactor and Router for a screen inside a RIB</string>
     <key>Platforms</key>
     <array>
         <string>com.apple.platform.iphoneos</string>
+        <string>com.apple.platform.macosx</string>
     </array>
     <key>SortOrder</key>
-    <integer>2</integer>
+    <integer>1</integer>
     <key>Destination</key>
     <string>Group</string>
     <key>FileGroup</key>
@@ -26,42 +23,50 @@
             <key>Required</key>
             <true/>
             <key>Name</key>
-            <string>Screen Name:</string>
+            <string>Module Name:</string>
             <key>Description</key>
-            <string>The screen name without "View", e.g. OnboardingIntro</string>
+            <string>The name of the Module</string>
             <key>Type</key>
             <string>text</string>
             <key>Default</key>
-            <string>ScreenName</string>
+            <string>ModuleName</string>
+            <key>Values</key>
+            <array>
+                <string>VIPER</string>
+            </array>
         </dict>
-        <dict>
-            <key>Identifier</key>
-            <string>camelCasedProductName</string>
-            <key>Required</key>
-            <true/>
-            <key>Name</key>
-            <string>camelCased Screen Name:</string>
-            <key>Description</key>
-            <string>The screen name with the first letter lowercased, e.g. onboardingIntro</string>
-            <key>Type</key>
-            <string>text</string>
-            <key>Default</key>
-            <string>screenName</string>
-        </dict>
-        <dict>
-            <key>Identifier</key>
-            <string>coreName</string>
-            <key>Required</key>
-            <true/>
-            <key>Name</key>
-            <string>RIB Name:</string>
-            <key>Description</key>
-            <string>The RIB this screen belongs to. Its Interactor must provide GlobalInteractor, so use Core</string>
-            <key>Type</key>
-            <string>text</string>
-            <key>Default</key>
-            <string>Core</string>
-        </dict>
+
+    <!-- Lowercased Module Name -->
+    <dict>
+        <key>Identifier</key>
+        <string>camelCasedProductName</string>
+        <key>Required</key>
+        <true/>
+        <key>Name</key>
+        <string>camelCased Module Name:</string>
+        <key>Description</key>
+        <string>The module name with the first letter lowercased</string>
+        <key>Type</key>
+        <string>text</string>
+        <key>Default</key>
+        <string>moduleName</string>
+    </dict>
+
+            <!-- RIB Name -->
+    <dict>
+        <key>Identifier</key>
+        <string>coreName</string>
+        <key>Required</key>
+        <true/>
+        <key>Name</key>
+        <string>RIB Name:</string>
+        <key>Description</key>
+        <string>The name to replace "Core"</string>
+        <key>Type</key>
+        <string>text</string>
+        <key>Default</key>
+        <string>Core</string>
+    </dict>
     </array>
 </dict>
 </plist>

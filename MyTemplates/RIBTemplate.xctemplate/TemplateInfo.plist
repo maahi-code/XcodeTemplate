@@ -4,17 +4,14 @@
 <dict>
     <key>Kind</key>
     <string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
-    <key>Description</key>
-    <string>A RIB: Builder, Interactor and Router.</string>
-    <key>Summary</key>
-    <string>Builder, Interactor and Router for a new RIB</string>
     <key>Platforms</key>
     <array>
         <string>com.apple.platform.iphoneos</string>
+        <string>com.apple.platform.macosx</string>
     </array>
     <key>SortOrder</key>
     <integer>1</integer>
-    <key>Destination</key>
+     <key>Destination</key>
     <string>Group</string>
     <key>FileGroup</key>
     <string>___VARIABLE_productName:identifier___</string>
@@ -26,13 +23,17 @@
             <key>Required</key>
             <true/>
             <key>Name</key>
-            <string>RIB Name:</string>
+            <string>Module Name:</string>
             <key>Description</key>
-            <string>The name of the RIB, e.g. Onb or Core</string>
+            <string>The name of the Module</string>
             <key>Type</key>
             <string>text</string>
             <key>Default</key>
-            <string>RIBName</string>
+            <string>ModuleName</string>
+            <key>Values</key>
+            <array>
+                <string>RIBs</string>
+            </array>
         </dict>
     </array>
 </dict>
