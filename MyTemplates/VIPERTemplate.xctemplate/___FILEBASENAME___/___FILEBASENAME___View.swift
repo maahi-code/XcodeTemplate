@@ -1,23 +1,28 @@
 import SwiftUI
 
-struct ___VARIABLE_productName:identifier___Delegate {
-    
+struct ___VARIABLE_productName:identifier___ViewDelegate {
+    var eventParameters: [String: Any]? {
+        nil
+    }
 }
 
 struct ___VARIABLE_productName:identifier___View: View {
-    
     @State var presenter: ___VARIABLE_productName:identifier___Presenter
-    let delegate: ___VARIABLE_productName:identifier___Delegate
-    
+    var delegate: ___VARIABLE_productName:identifier___ViewDelegate
+
     var body: some View {
-        Text("Hello, World!")
-            .screenAppearAnalytics(name: "___VARIABLE_productName:identifier___View")
+        Text("___VARIABLE_productName:identifier___")
+            .onAppear {
+                presenter.onViewAppear(delegate: delegate)
+            }
+            .onDisappear {
+                presenter.onViewDisappear(delegate: delegate)
+            }
     }
 }
 
 extension ___VARIABLE_coreName:identifier___Builder {
-    
-    func ___VARIABLE_camelCasedProductName:identifier___View(router: Router, delegate: ___VARIABLE_productName:identifier___Delegate) -> some View {
+    func ___VARIABLE_camelCasedProductName:identifier___View(router: AnyRouter, delegate: ___VARIABLE_productName:identifier___ViewDelegate = ___VARIABLE_productName:identifier___ViewDelegate()) -> some View {
         ___VARIABLE_productName:identifier___View(
             presenter: ___VARIABLE_productName:identifier___Presenter(
                 interactor: interactor,
@@ -26,26 +31,21 @@ extension ___VARIABLE_coreName:identifier___Builder {
             delegate: delegate
         )
     }
-    
 }
 
 extension ___VARIABLE_coreName:identifier___Router {
-    
-    func show___VARIABLE_productName:identifier___View(delegate: ___VARIABLE_productName:identifier___Delegate) {
+    func show___VARIABLE_productName:identifier___View(delegate: ___VARIABLE_productName:identifier___ViewDelegate = ___VARIABLE_productName:identifier___ViewDelegate()) {
         router.showScreen(.push) { router in
             builder.___VARIABLE_camelCasedProductName:identifier___View(router: router, delegate: delegate)
         }
     }
-    
 }
 
 #Preview {
-    let container = DevPreview.shared.container
-    let builder = ___VARIABLE_coreName:identifier___Builder(interactor: ___VARIABLE_coreName:identifier___Interactor(container: container))
-    let delegate = ___VARIABLE_productName:identifier___Delegate()
-    
+    let builder = ___VARIABLE_coreName:identifier___Builder(interactor: ___VARIABLE_coreName:identifier___Interactor(container: DevPreview.shared.container()))
+
     return RouterView { router in
-        builder.___VARIABLE_camelCasedProductName:identifier___View(router: router, delegate: delegate)
+        builder.___VARIABLE_camelCasedProductName:identifier___View(router: router, delegate: ___VARIABLE_productName:identifier___ViewDelegate())
     }
     .previewEnvironment()
 }
